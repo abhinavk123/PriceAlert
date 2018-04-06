@@ -6,13 +6,14 @@ from bs4 import BeautifulSoup
 from src.common.database import Database
 
 
+
 class Item(object):
     def __init__(self,name,url,store,_id = None):
         self.name = name
         self.url = url
         self.store = store
-        tag_name = store['tag_name']
-        query = store['query']
+        tag_name = store.tag_name
+        query = store.query
         self.price = self.load_price(tag_name,query)
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -31,10 +32,12 @@ class Item(object):
 
         string_price = element.text.strip()
 
-        pattern = re.compile(["(\d+.\d+)"])
-        match = pattern.search(string_price)
+        #pattern = re.compile("(\d+.\d+)")
+        #match = pattern.search(string_price)
 
-        return match.group()
+        #return match.group()
+
+        return string_price[1:]
 
     def save_to_mongo(self):
         Database.insert(ItemConstants.COLLECTION,self.json())
@@ -51,8 +54,5 @@ class Item(object):
         return {
             '_id':self._id,
             'name':self.name,
-            'url':self.url,
-            'price':self.price,
-            'store':self.store
+            'url':self.url
         }
-

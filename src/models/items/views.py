@@ -9,8 +9,5 @@ def item_page(name):
 
 @item_blueprint.route('/load')
 def load_item():
-    """
-    Loads an item's data using their store and return a json representation
-    :return:
-    """
+
     pass
