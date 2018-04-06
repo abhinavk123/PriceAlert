@@ -17,13 +17,6 @@ class User(object):
 
     @staticmethod
     def is_login_valid(email,password):
-        """
-        This method  verifies that an email/password combo (as sent by the site forms) is valid or not.
-        Checks that the email exists, and the password associated to that email is correct.
-        :param email: The user's email
-        :param password: A sha512 hashed password
-        :return True if valid, False otherwise
-        """
 
         user_data = Database.find_one('users',{'email':email})
         if user_data is None:

@@ -1,4 +1,5 @@
 
+
 class Alert(object):
     def __init__(self,user,price_limit,item):
         self.user = user
