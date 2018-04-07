@@ -43,8 +43,8 @@ class Item(object):
         Database.insert(ItemConstants.COLLECTION,self.json())
 
     @classmethod
-    def get_from_mongo(cls,name):
-        item = Database.find_one(ItemConstants.COLLECTION,{'name':name})
+    def get_by_id(cls,id):
+        item = Database.find_one(ItemConstants.COLLECTION,{'_id':id})
         if item is not None:
             return cls(**item)
         else:
