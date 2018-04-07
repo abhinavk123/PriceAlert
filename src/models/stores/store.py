@@ -12,5 +12,14 @@ class Store(object):
     def __repr__(self):
         return "<Store {}>".format(self.name)
 
+    def json(self):
+        return {
+            "_id":self._id,
+            "name":self.name,
+            "url_prefix":self.prefix,
+            "tag_name":self.tag_name,
+            "query":self.query
+        }
+
 
 
