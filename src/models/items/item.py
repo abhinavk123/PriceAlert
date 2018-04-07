@@ -12,9 +12,9 @@ class Item(object):
         self.name = name
         self.url = url
         store = Store.find_by_url(url)
-        tag_name = store.tag_name
-        query = store.query
-        self.price = self.load_price(tag_name,query)
+        self.tag_name = store.tag_name
+        self.query = store.query
+        self.price = None
         self._id = uuid.uuid4().hex if _id is None else _id
 
 
@@ -22,13 +22,13 @@ class Item(object):
         return "<Item {} with URL {}".format(self.name,self.url)
 
 
-    def load_price(self,tag_name,query):
+    def load_price(self):
         request = requests.get(self.url)
         content = request.content
 
         soup = BeautifulSoup(content,"html.parser")
 
-        element = soup.find(tag_name,query)
+        element = soup.find(self.tag_name,self.query)
 
         string_price = element.text.strip()
 
@@ -37,7 +37,9 @@ class Item(object):
 
         #return match.group()
 
-        return string_price[1:]
+        self.price = float(string_price[1:])
+
+        return float(string_price[1:])
 
     def save_to_mongo(self):
         Database.insert(ItemConstants.COLLECTION,self.json())
