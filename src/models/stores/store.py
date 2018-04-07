@@ -1,4 +1,6 @@
 import uuid
+import src.models.stores.constants as StoreConstants
+from src.common.database import Database
 
 
 class Store(object):
@@ -21,5 +23,8 @@ class Store(object):
             "query":self.query
         }
 
+    @classmethod
+    def get_from_id(cls,id):
+        return cls(**Database.find_one(StoreConstants.CONSTANT,{'_id':id}))
 
 
