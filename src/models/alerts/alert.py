@@ -58,5 +58,5 @@ class Alert(object):
 
     def send_email_if_price_reached(self):
         if self.item.price < self.price_limit:
-            self.send()
+            print(self.send())
 

@@ -2,4 +2,4 @@ URL = ""
 APIKEY = ""
 FROM = ""
 ALERT_TIMEOUT = 10
-COLLECTION = "alerts"
+COLLECTION = ""
