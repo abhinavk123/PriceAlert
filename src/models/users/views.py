@@ -18,7 +18,7 @@ def login_user():
         except errors.UserErrors as e:
             return e.message
 
-    return render_template("users/login.html")
+    return render_template("users/login.jinja2")
 
 
 
@@ -37,7 +37,7 @@ def register_user():
         except errors.UserErrors as e:
             return e.message
 
-    return render_template("users/register.html")
+    return render_template("users/register.jinja2")
 
 @user_blueprint.route('/logout')
 def logout_user():
