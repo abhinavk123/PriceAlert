@@ -41,12 +41,12 @@ def register_user():
 
 @user_blueprint.route('/logout')
 def logout_user():
-    pass
+    return render_template("underconstruction.jinja2")
 
 @user_blueprint.route('/alters')
 def user_alerts():
-    return "This is a alter page"
+    return render_template("underconstruction.jinja2")
 
 @user_blueprint.route('/check_alerts/<string:user_id>')
 def check_user_alerts(user_id):
-    pass
+    return render_template("underconstruction.jinja2")
