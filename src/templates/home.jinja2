@@ -1,8 +1,11 @@
 {% extends "base.jinja2" %}
 {% block content %}
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>...</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        <h1 class="display-4">Price Alert</h1>
+        <p class="lead">This a price alert portal for every enthusiast shopper.</p>
+        <hr class="my-4">
+        <p>We scan online websites to alert you of price drops in items that interests you.</p>
+        <p>Just sign up , start by adding URL of the item that you wish to track, rest we will do!.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for("users.register_user")}}" role="button">Sign Up</a>
     </div>
 {% endblock %}
