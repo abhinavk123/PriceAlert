@@ -12,9 +12,7 @@ app.secret_key ='123'
 
 from src.models.users.views import user_blueprint
 app.register_blueprint(user_blueprint,url_prefix='/users')
-
 app.register_blueprint(alert_blueprint,url_prefix='/alerts')
-
 app.register_blueprint(stores_blueprint,url_prefix='/stores')
 
 @app.before_first_request
