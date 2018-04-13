@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<dev>
+
 <nav   class="navbar navbar-expand-lg navbar-light mine" style=" background-color: #cfd8c7;" >
 
     <a class="navbar-brand" href="/" title="Home" >Price Alert</a>
@@ -29,30 +29,30 @@
         {% if session['email'] %}
             <ul class="navbar-nav  navbar-right">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for("users.user_alerts")}}"><span class="glyphicon glyphicon-alert"></span> My Alerts </a>
+                    <a class="nav-link" href="{{ url_for("users.user_alerts")}}"><span class="fa fa-exclamation-triangle"></span> My Alerts </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for("users.logout_user")}}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a>
+                    <a class="nav-link" href="{{ url_for("users.logout_user")}}"><span class="fa fa-sign-out-alt" aria-hidden="true"></span> Log out</a>
                 </li>
             </ul>
         {% else %}
             <ul class="navbar-nav  navbar-right">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for("users.register_user")}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign Up </a>
+                    <a class="nav-link" href="{{ url_for("users.register_user")}}"><span class="fa fa-user" aria-hidden="true"></span> Sign Up </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for("users.login_user")}}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</a>
+                    <a class="nav-link" href="{{ url_for("users.login_user")}}"><span class="fa fa-sign-in-alt"></span> Log in</a>
                 </li>
             </ul>
         {% endif %}
 
     </div>
 </nav>
-</dev>
-<dev>
+
+
     {% block content %}
 
     {% endblock %}
-</dev>
+
 </body>
 </html>

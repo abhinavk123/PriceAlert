@@ -56,5 +56,6 @@ class Item(object):
         return {
             '_id':self._id,
             'name':self.name,
-            'url':self.url
+            'url':self.url,
+            'price':self.price
         }
