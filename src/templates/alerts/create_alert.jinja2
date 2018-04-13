@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Create Alert</h1>
+    </div>
+    <div class="form-size">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Alert/Item Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="https://...">
+            </div>
+            <div class="form-group">
+                <label for="price-limit">Price Limit</label>
+                <input type="text" class="form-control" id="price-limit" name="price-limit" placeholder="45.00" aria-describedby="priceLimitBlock">
+                <p id="priceLimitBlock"class="help-block">We will send you a email when price reaches or undergoes this</p>
+            </div>
+            <button class="btn btn-default" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}

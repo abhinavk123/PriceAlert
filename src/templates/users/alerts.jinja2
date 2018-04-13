@@ -1,5 +1,6 @@
 {% extends "base.jinja2" %}
 {% block content %}
+    <div>
     <div class="page-header well">
         <h1>Alerts<small> showing already existed alerts</small></h1>
     </div>
@@ -15,5 +16,7 @@
     {% endfor %}
 
 
+    </div>
+    <a class="btn btn-success"  href="{{ url_for('alerts.create_alert') }}"><span class="fa fa-plus"></span> Create Alert</a>
     </div>
 {% endblock %}
