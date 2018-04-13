@@ -1,5 +1,7 @@
 import uuid
 
+from flask import session
+
 from src.common.database import Database
 from src.common.util import Utils
 import src.models.users.errors as UserErrors
@@ -48,3 +50,7 @@ class User(object):
             "email":self.email,
             "password":self.password
         }
+
+    @classmethod
+    def find_by_email(cls,email):
+        return cls(**Database.find_one('users',{'email':email}))

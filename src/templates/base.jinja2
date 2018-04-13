@@ -26,7 +26,7 @@
                 <a class="nav-link" href="{{ url_for("alerts.index")}}">Alerts <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        {% if session[email] %}
+        {% if session['email'] %}
             <ul class="navbar-nav  navbar-right">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for("users.user_alerts")}}"><span class="glyphicon glyphicon-alert"></span> My Alerts </a>

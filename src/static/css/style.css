@@ -3,39 +3,28 @@ body, html {
 }
 
 .bgimg {
-    /* Background image */
+
     background-image: url('https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?cs=srgb&dl=bench-carved-stones-cemetery-257360.jpg&fm=jpg');
-    /* Full-screen */
     height: 100%;
-    /* Center the background image */
     background-position: center;
-    /* Scale and zoom in the image */
     background-size: cover;
-    /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
     position: relative;
-    /* Add a white text color to all elements inside the .bgimg container */
     color: #ff2d53;
-    /* Add a font */
     font-family: "Courier New", Courier, monospace;
-    /* Set the font-size to 25 pixels */
     font-size: 25px;
 }
+.mybg {
 
-/* Position text in the top-left corner */
-.topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
+    background-image: url('https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?cs=srgb&dl=bench-carved-stones-cemetery-257360.jpg&fm=jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: inherit;
+
+
 }
 
-/* Position text in the bottom-left corner */
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-}
 
-/* Position text in the middle */
 .middle {
     position: absolute;
     top: 50%;
@@ -44,8 +33,13 @@ body, html {
     text-align: center;
 }
 
-/* Style the <hr> element */
-hr {
-    margin: auto;
-    width: 40%;
+.form-size{
+    max-width:400px;
+    margin: 80px auto;
+    background-color: #cfd8c7;
+    padding: 20px;
+    border: 1px solid #6e7885;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
