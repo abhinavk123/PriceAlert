@@ -1,2 +1,2 @@
 
-COLLECTION = 'items'
+COLLECTION = 'users'

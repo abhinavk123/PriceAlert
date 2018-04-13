@@ -1,10 +1,11 @@
 import uuid
 
 from flask import session
-
+import src.models.users.constants as UserConstants
 from src.common.database import Database
 from src.common.util import Utils
 import src.models.users.errors as UserErrors
+from src.models.alerts.alert import Alert
 
 
 class User(object):
@@ -20,7 +21,7 @@ class User(object):
     @staticmethod
     def is_login_valid(email,password):
 
-        user_data = Database.find_one('users',{'email':email})
+        user_data = Database.find_one(UserConstants.COLLECTION,{'email':email})
         if user_data is None:
             raise UserErrors.UserNotExistsError("User does not exist.")
         if not Utils.check_hashed_password(password,user_data['password']):
@@ -30,7 +31,7 @@ class User(object):
 
     @staticmethod
     def register_user(email,password):
-        user_data = Database.find_one('users',{'email':email})
+        user_data = Database.find_one(UserConstants.COLLECTION,{'email':email})
 
         if user_data is not None:
             raise UserErrors.UserAlreadyRegisteredError("The email you used to register already Exists")
@@ -42,7 +43,7 @@ class User(object):
         return True
 
     def save_to_db(self):
-        Database.insert('users',self.json())
+        Database.insert(UserConstants.COLLECTION,self.json())
 
     def json(self):
         return {
@@ -51,6 +52,9 @@ class User(object):
             "password":self.password
         }
 
+    def get_alerts(self):
+        return Alert.find_by_email(self.email)
+
     @classmethod
     def find_by_email(cls,email):
-        return cls(**Database.find_one('users',{'email':email}))
+        return cls(**Database.find_one(UserConstants.COLLECTION,{'email':email}))

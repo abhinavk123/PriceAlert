@@ -1,5 +1,6 @@
 from flask import Blueprint, request, session, url_for, redirect, render_template
 
+from src.models.alerts.alert import Alert
 from src.models.users import errors
 from src.models.users.user import User
 
@@ -46,8 +47,9 @@ def logout_user():
 
 @user_blueprint.route('/alters')
 def user_alerts():
-
-    return render_template("underconstruction.jinja2")
+    user = User.find_by_email(session['email'])
+    alerts = user.get_alerts()
+    return render_template("users/alerts.jinja2",alerts=alerts)
 
 @user_blueprint.route('/check_alerts/<string:user_id>')
 def check_user_alerts(user_id):
