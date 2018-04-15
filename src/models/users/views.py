@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session, url_for, redirect, render_template
 
-from src.models.alerts.alert import Alert
+import src.models.users.decorators as user_decoraters
 from src.models.users import errors
 from src.models.users.user import User
 
@@ -41,11 +41,13 @@ def register_user():
     return render_template("users/register.jinja2")
 
 @user_blueprint.route('/logout')
+@user_decoraters.requires_login
 def logout_user():
     session['email']=None
     return redirect(url_for('home'))
 
 @user_blueprint.route('/alters')
+@user_decoraters.requires_login
 def user_alerts():
     user = User.find_by_email(session['email'])
     alerts = user.get_alerts()

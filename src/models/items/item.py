@@ -17,21 +17,17 @@ class Item(object):
         self.price = None if price is  None  else price
         self._id = uuid.uuid4().hex if _id is None else _id
 
-
     def __repr__(self):
         return "<Item {} with URL {}".format(self.name,self.url)
-
 
     def load_price(self):
         request = requests.get(self.url)
         content = request.content
-
         soup = BeautifulSoup(content,"html.parser")
-
         element = soup.find(self.tag_name,self.query)
-
-        string_price = element.text.strip()
-
+        el = element.text.split('\n')
+        string_price = el[4]
+        self.name=el[1]
         #pattern = re.compile("(\d+.\d+)")
         #match = pattern.search(string_price)
 
