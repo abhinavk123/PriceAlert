@@ -7,7 +7,7 @@
 </div>
     <div class="list_group container">
        {% for store in stores %}
-            <a href="{{ store.prefix }}" class="list-group-item" target="_blank">
+            <a href="{{ url_for('stores.store_page',store_id = store._id) }}" class="list-group-item" target="_blank">
                 <h4 class="list-group-item-heading">{{ store.name }}</h4>
                 <p class="list-group-item-text">All URL starts with {{ store.prefix }}</p>
             </a>
