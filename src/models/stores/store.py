@@ -39,6 +39,10 @@ class Store(object):
         Database.insert(StoreConstants.CONSTANT,self.json())
 
     @classmethod
+    def find_all(cls):
+        return [cls(**elm) for elm in Database.find(StoreConstants.CONSTANT,{})]
+
+    @classmethod
     def find_by_url(cls,url):
 
         for i in range(len(url)):
