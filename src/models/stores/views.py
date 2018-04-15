@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect, json
-
+import src.models.users.decorators as user_decrators
 from src.models.stores.store import Store
 
 stores_blueprint = Blueprint('stores', __name__)
@@ -18,6 +18,7 @@ def store_page(store_id):
 
 
 @stores_blueprint.route('/new',methods=['GET','POST'])
+@user_decrators.requires_admin
 def create_store():
     if request.method == 'POST':
         name = request.form['name']
@@ -32,6 +33,7 @@ def create_store():
 
 
 @stores_blueprint.route('/edit/<string:store_id>', methods=['GET','POST'])
+@user_decrators.requires_admin
 def edit_store(store_id):
     if request.method == 'POST':
         name = request.form['name']
@@ -51,6 +53,7 @@ def edit_store(store_id):
 
 
 @stores_blueprint.route('/delete/<string:store_id>')
+@user_decrators.requires_admin
 def delete_store(store_id):
     store = Store.get_by_id(store_id)
     store.delete()

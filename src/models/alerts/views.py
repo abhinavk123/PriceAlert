@@ -64,3 +64,14 @@ def check_price(alert_id):
     alert.load_item_price()
     return redirect(url_for('.get_alert_page',alert_id=alert_id))
 
+@alert_blueprint.route('/edit/<string:alert_id>', methods=['GET','POST'])
+def edit_alert(alert_id):
+    if request.method == 'POST':
+        price_limit = request.form['price-limit']
+        alert = Alert.find_by_id(alert_id)
+        alert.price_limit=price_limit
+        alert.save_to_mongo()
+        return redirect(url_for('users.user_alerts'))
+
+
+    return render_template('alerts/edit_alert.jinja2',alert = Alert.find_by_id(alert_id))

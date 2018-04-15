@@ -14,9 +14,11 @@
         {% endfor %}
 
     </div>
+    {% if session['email'] in config.ADMIN %}
     <div class="container">
     <a href="{{ url_for('stores.create_store') }}" class="btn btn-success" >
         <span class="fa fa-plus"> Create Store</span>
     </a>
     </div>
+    {% endif %}
 {% endblock %}
