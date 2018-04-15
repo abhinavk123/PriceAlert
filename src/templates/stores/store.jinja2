@@ -3,7 +3,19 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>Stores <small><i>Which we supports </i></small></h1>
+        <h1>Stores <small><i>{{ store.name }} </i></small></h1>
+    </div>
+    <p>All URLs in this starts with prefix <strong>{{ store.prefix }}</strong></p>
+    <div class="card">
+        <div class="card-body">
+            <a class="btn btn-success" href="{{ store.prefix }}" role="button" target="_blank">Visit</a>
+            <a class="btn btn-warning" href="{{ url_for('stores.edit_store',store_id = store._id)}}" role="button">
+                Edit Store
+            </a>
+            <a class="btn btn-danger" href="{{ url_for('stores.delete_store',store_id=store._id)}}" role="button">
+                Permanently Delete Store
+            </a>
+        </div>
     </div>
 </div>
 

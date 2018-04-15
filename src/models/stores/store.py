@@ -36,7 +36,11 @@ class Store(object):
         return cls(**Database.find_one(StoreConstants.CONSTANT,{'url_prefix':{"$regex":"^{}".format(url_prefix)}}))
 
     def save_to_mongo(self):
-        Database.insert(StoreConstants.CONSTANT,self.json())
+        Database.update(StoreConstants.CONSTANT,{'_id':self._id},self.json())
+
+    def delete(self):
+        Database.remove(StoreConstants.CONSTANT,{'_id':self._id})
+
 
     @classmethod
     def find_all(cls):
