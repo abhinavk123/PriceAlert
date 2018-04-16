@@ -1,5 +1,5 @@
-# ImageChanger
-GUI software for single image manipulation
+# Price Alert
+A Web App for pricealert on various online stores. User can set price alert on any item and set a price limit so whenever price goes below the price limit user will get email about it.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine
@@ -27,7 +27,7 @@ src/run.py
 ```
 http://127.0.0.1:4990 or port at which server is running.
 
-## Built With
+# Built With
 
 ## FrontEnd
 * [HTML]
