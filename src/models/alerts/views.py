@@ -6,10 +6,6 @@ import src.models.users.decorators as user_decoraters
 alert_blueprint = Blueprint('alerts',__name__)
 
 
-@alert_blueprint.route('/')
-def index():
-    return render_template("underconstruction.jinja2")
-
 
 @alert_blueprint.route('/new',methods=['GET','POST'])
 @user_decoraters.requires_login
