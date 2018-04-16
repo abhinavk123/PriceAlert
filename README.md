@@ -35,6 +35,7 @@ http://127.0.0.1:4990 or port at which server is running.
 * [Bootsstrap](https://getbootstrap.com/)
 
 ## BackEnd
-* [Flask]() - Python mini-web framework
+* [Flask](http://flask.pocoo.org/) - Flask is a micro web framework written in Python and based on the Werkzeug toolkit and Jinja2 template engine
+* [MongoDB](https://www.mongodb.com/)
 
 
