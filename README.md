@@ -30,8 +30,8 @@ http://127.0.0.1:4990 or port at which server is running.
 # Built With
 
 ## FrontEnd
-* [HTML]
-* [CSS]
+* HTML
+* CSS
 * [Bootsstrap](https://getbootstrap.com/)
 
 ## BackEnd
