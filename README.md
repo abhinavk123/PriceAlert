@@ -1,5 +1,5 @@
 # Price Alert
-A Web App for pricealert on various online stores. User can set price alert on any item and set a price limit so whenever price goes below the price limit user will get email about it.
+A Web App for price alert on various online stores. The user can set the price alert on any item and set a price limit so whenever price goes below the price limit user will get an email about it.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine
