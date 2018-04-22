@@ -2,3 +2,4 @@ Flask
 pymongo
 beautifulsoup4
 passlib
+uwsgi
