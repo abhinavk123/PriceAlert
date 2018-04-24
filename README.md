@@ -38,4 +38,10 @@ http://127.0.0.1:4990 or port at which server is running.
 * [Flask](http://flask.pocoo.org/) - Flask is a micro web framework written in Python and based on the Werkzeug toolkit and Jinja2 template engine
 * [MongoDB](https://www.mongodb.com/)
 
+# Note
 
+* If you want admin permission than add your email address in ADMINS variable in
+ ```
+src/config.py
+```
+* Admin can add, edit, create and delete the stores while other users have not permission to do these function.
