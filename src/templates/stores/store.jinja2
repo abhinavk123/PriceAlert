@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-body">
             <a class="btn btn-success" href="{{ store.prefix }}" role="button" target="_blank">Visit</a>
-            {% if session['email'] in config.ADMIN %}
+            {% if session['email'] in config.ADMINS %}
             <a class="btn btn-warning" href="{{ url_for('stores.edit_store',store_id = store._id)}}" role="button">
                 Edit Store
             </a>
